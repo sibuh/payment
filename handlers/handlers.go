@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -17,6 +18,7 @@ import (
 func GetProducts(c *gin.Context) {
 
 	products := db.GetAllProducts()
+	fmt.Println("products:", products)
 
 	c.JSON(http.StatusOK, gin.H{"products": products})
 
